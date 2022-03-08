@@ -114,9 +114,6 @@ function closeSelection() {
     items.value.splice(itemIndex, 1);
 }
 
-function handleControlShortcuts(event) {
-}
-
 function onKeyDown(event) {
     if (! event.ctrlKey) {
         return;
