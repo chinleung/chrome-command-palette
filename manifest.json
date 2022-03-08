@@ -1,0 +1,23 @@
+{
+    "name": "Command Palette",
+    "description": "A command palette to navigate in Google Chrome faster.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "commands": {
+        "toggle-palette": {
+            "suggested_key": {
+                "default": "Ctrl+K"
+            },
+            "description": "Toggle the command palette."
+        }
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "search",
+        "tabs"
+    ]
+}

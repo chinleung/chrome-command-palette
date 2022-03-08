@@ -1,0 +1,5 @@
+#chrome-command-palette, #headlessui-portal-root {
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+}
