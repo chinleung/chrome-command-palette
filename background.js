@@ -77,8 +77,14 @@ function handleCloseTab(args) {
 }
 
 function handleOpenTab(args) {
+    let url = args.value;
+
+    if (url.match(/https?:\/\//) === null) {
+        url = `http://${url}`;
+    }
+
     chrome.tabs.create({
-        url: args.value,
+        url: url,
     });
 }
 

@@ -17384,8 +17384,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       items.value.splice(itemIndex, 1);
     }
 
-    function handleControlShortcuts(event) {}
-
     function onKeyDown(event) {
       if (!event.ctrlKey) {
         return;
@@ -17427,7 +17425,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       selectedItem: selectedItem,
       filteredItems: filteredItems,
       closeSelection: closeSelection,
-      handleControlShortcuts: handleControlShortcuts,
       onKeyDown: onKeyDown,
       onChangeQuery: onChangeQuery,
       onSelect: onSelect,
