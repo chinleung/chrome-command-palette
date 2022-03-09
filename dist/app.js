@@ -17211,13 +17211,11 @@ const getGlobalThis = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/App.vue */ "./js/Components/App.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-console.log('Loaded app.js');
 
 
 var id = 'chrome-command-palette';
 document.body.insertAdjacentHTML('afterBegin', "<div id=\"".concat(id, "\"></div>"));
 (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)(_Components_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]).mount("#".concat(id));
-console.log('Finished running app.js');
 
 /***/ }),
 
