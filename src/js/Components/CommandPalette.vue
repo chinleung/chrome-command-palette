@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { SearchIcon } from '@heroicons/vue/solid';
-import { DocumentIcon, LinkIcon } from '@heroicons/vue/outline';
+import { DocumentIcon, LinkIcon, TrashIcon } from '@heroicons/vue/outline';
 import {
     Combobox,
     ComboboxInput,
@@ -23,7 +23,7 @@ const queryIsUrl = computed(_ => {
     return query.value.match(/https?:\/\//) !== null;
 });
 
-const notFoundItem = computed(_ => {
+const wildcardItem = computed(_ => {
     const args = {};
 
     if (queryIsUrl.value) {
@@ -60,7 +60,7 @@ document.addEventListener('OpenCommandPalette', event => {
                 'X',
             ],
         })),
-        notFoundItem,
+        wildcardItem,
     ];
 
     open.value = true;

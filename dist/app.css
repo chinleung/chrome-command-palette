@@ -625,6 +625,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }#chrome-command-palette .bg-gray-50, #headlessui-portal-root .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}#chrome-command-palette .bg-red-500, #headlessui-portal-root .bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }#chrome-command-palette .bg-opacity-25, #headlessui-portal-root .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }#chrome-command-palette .p-4, #headlessui-portal-root .p-4 {
