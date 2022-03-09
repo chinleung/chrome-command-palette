@@ -24,26 +24,26 @@ const queryIsUrl = computed(_ => {
 });
 
 const notFoundItem = computed(_ => {
+    const args = {};
+
     if (queryIsUrl.value) {
-        return {
-            action: 'open-tab',
-            color: 'bg-blue-500',
-            description: `Navigate to ${query.value}`,
-            icon: LinkIcon,
-            label: 'Open new tab',
-            value: query.value,
-            wildcard: true,
-        };
+        args.action = 'open-tab';
+        args.description = `Navigate to ${query.value}`;
+        args.icon = LinkIcon;
+        args.label = 'Open new tab';
     }
 
     return {
         action: 'search',
-        color: 'bg-blue-500',
         description: `Search for "${query.value}"`,
         icon: SearchIcon,
         label: 'Start new search',
+        color: 'bg-blue-500',
+        shortcuts: [
+            'N',
+        ],
         value: query.value,
-        wildcard: true,
+        ...args,
     };
 });
 
@@ -55,6 +55,10 @@ document.addEventListener('OpenCommandPalette', event => {
             color: 'bg-indigo-500',
             icon: DocumentIcon,
             description: 'Change active tab',
+            shortcuts: [
+                'N',
+                'X',
+            ],
         })),
         notFoundItem,
     ];
@@ -66,6 +70,21 @@ const open = ref(false);
 const items = ref([]);
 const selectedIndex = ref(null);
 const selectedItem = ref(null);
+const availableShortcuts = ref([]);
+
+const shortcuts = [
+    {
+        key: 'N',
+        callback: createWindow,
+        description: 'Open in new window',
+        shift: 'Open in new incognito window',
+    },
+    {
+        key: 'X',
+        callback: closeSelection,
+        description: 'Close tab'
+    }
+];
 
 const filteredItems = computed(_ => {
     if (query.value === '') {
@@ -81,9 +100,9 @@ const filteredItems = computed(_ => {
 
         return item;
     }).filter(item => {
-        return item.wildcard
-            || item.label.toLowerCase().includes(search)
-            || item.url?.toLowerCase()?.includes(search);
+        return item.label.toLowerCase().includes(search)
+            || item.url?.toLowerCase()?.includes(search)
+            || item.description.toLowerCase()?.includes(search);
     })
 });
 
@@ -108,16 +127,20 @@ function closeSelection() {
     items.value.splice(itemIndex, 1);
 }
 
-function createWindow(incognito) {
+function createWindow(event) {
     const item = getSelectedItem();
 
     onSelect(item, {
         createWindow: true,
-        incognito: incognito,
+        incognito: event.shiftKey,
     });
 }
 
 function getSelectedItem() {
+    if (! selectedIndex.value) {
+        return;
+    }
+
     const index = parseInt(selectedIndex.value.getAttribute('value'));
 
     if (isNaN(index)) {
@@ -132,12 +155,19 @@ function onKeyDown(event) {
         return;
     }
 
-    switch (event.key.toLowerCase()) {
-        case 'n':
-            return createWindow(event.shiftKey);
-        case 'x':
-            return closeSelection();
+    const key = event.key.toUpperCase();
+
+    const shortcut = shortcuts.find(shortcut => shortcut.key == key);
+
+    if (! shortcut) {
+        return;
     }
+
+    shortcut.callback(event);
+}
+
+function onKeyUp(event) {
+    refreshAvailableShortcuts();
 }
 
 function onChangeQuery(event) {
@@ -161,6 +191,20 @@ function onSelect(item, params = {}) {
 function postMessage(payload) {
     chrome.runtime.connect().postMessage(payload);
 }
+
+function refreshAvailableShortcuts() {
+    const item = getSelectedItem();
+
+    if (! item?.shortcuts) {
+        availableShortcuts.value = [];
+
+        return;
+    }
+
+    availableShortcuts.value = shortcuts.filter(shortcut => {
+        return item.shortcuts.indexOf(shortcut.key) !== -1;
+    });
+}
 </script>
 
 <template>
@@ -174,7 +218,7 @@ function postMessage(payload) {
     <Combobox v-model="selectedItem" v-slot="{ activeIndex }" as="div" class="max-w-xl mx-auto overflow-hidden bg-white shadow-2xl transform divide-y divide-gray-100 rounded-xl ring-1 ring-black ring-opacity-5 transition-all" @update:modelValue="onSelect">
     <div class="relative">
         <SearchIcon class="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400" aria-hidden="true" />
-        <ComboboxInput @change="onChangeQuery" @keydown="onKeyDown" class="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm" placeholder="Search..." />
+        <ComboboxInput @change="onChangeQuery" @keydown="onKeyDown" @keyup="onKeyUp" class="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-0 pl-11 focus:ring-0 sm:text-sm" placeholder="Search..." />
         <input ref="selectedIndex" :value="activeIndex" type="hidden" />
     </div>
 
@@ -195,6 +239,30 @@ function postMessage(payload) {
     </li>
     </ComboboxOption>
     </ComboboxOptions>
+    <div v-if="availableShortcuts.length" class="flex flex-col bg-gray-50 py-2.5 px-4 text-xs text-gray-700 space-y-2">
+        <div class="font-bold">Shortcuts</div>
+        <div v-for="shortcut in availableShortcuts" :key="`shortcut-${shortcut.key}`">
+            <div class="flex justify-between">
+                <div class="flex">
+                    <kbd class="flex items-center justify-center w-10 h-5 mr-1 font-semibold text-gray-900 bg-white border border-gray-400 rounded sm:mr-2">CTRL</kbd>
+                    &plus;
+                    <kbd class="flex items-center justify-center w-5 h-5 mx-1 font-semibold text-gray-900 bg-white border border-gray-400 rounded sm:mx-2">{{ shortcut.key }}</kbd>
+                </div>
+                <div>{{ shortcut.description }}</div>
+            </div>
+            <div v-if="shortcut.shift" class="flex justify-between mt-2">
+                <div class="flex">
+                    <kbd class="flex items-center justify-center w-10 h-5 mr-1 font-semibold text-gray-900 bg-white border border-gray-400 rounded sm:mr-2">CTRL</kbd>
+                    &plus;
+                    <kbd class="flex items-center justify-center w-12 h-5 mx-1 font-semibold text-gray-900 bg-white border border-gray-400 rounded sm:mx-2">SHIFT</kbd>
+                    &plus;
+                    <kbd class="flex items-center justify-center w-5 h-5 mx-1 font-semibold text-gray-900 bg-white border border-gray-400 rounded sm:mx-2">{{ shortcut.key }}</kbd>
+                </div>
+                <div>{{ shortcut.shift }}</div>
+            </div>
+        </div>
+      </div>
+
     </Combobox>
     </TransitionChild>
     </Dialog>

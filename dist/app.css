@@ -505,8 +505,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }#chrome-command-palette .mx-auto, #headlessui-portal-root .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}#chrome-command-palette .mx-1, #headlessui-portal-root .mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}#chrome-command-palette .my-2, #headlessui-portal-root .my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }#chrome-command-palette .ml-4, #headlessui-portal-root .ml-4 {
   margin-left: 1rem;
+}#chrome-command-palette .mr-1, #headlessui-portal-root .mr-1 {
+  margin-right: 0.25rem;
+}#chrome-command-palette .mt-2, #headlessui-portal-root .mt-2 {
+  margin-top: 0.5rem;
 }#chrome-command-palette .flex, #headlessui-portal-root .flex {
   display: flex;
 }#chrome-command-palette .hidden, #headlessui-portal-root .hidden {
@@ -529,6 +539,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 2.5rem;
 }#chrome-command-palette .w-6, #headlessui-portal-root .w-6 {
   width: 1.5rem;
+}#chrome-command-palette .w-12, #headlessui-portal-root .w-12 {
+  width: 3rem;
 }#chrome-command-palette .max-w-xl, #headlessui-portal-root .max-w-xl {
   max-width: 36rem;
 }#chrome-command-palette .flex-none, #headlessui-portal-root .flex-none {
@@ -555,10 +567,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }#chrome-command-palette .scroll-py-3, #headlessui-portal-root .scroll-py-3 {
   scroll-padding-top: 0.75rem;
   scroll-padding-bottom: 0.75rem;
+}#chrome-command-palette .flex-col, #headlessui-portal-root .flex-col {
+  flex-direction: column;
 }#chrome-command-palette .items-center, #headlessui-portal-root .items-center {
   align-items: center;
 }#chrome-command-palette .justify-center, #headlessui-portal-root .justify-center {
   justify-content: center;
+}#chrome-command-palette .justify-between, #headlessui-portal-root .justify-between {
+  justify-content: space-between;
+}#chrome-command-palette .space-y-2 > :not([hidden]) ~ :not([hidden]), #headlessui-portal-root .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }#chrome-command-palette .divide-y > :not([hidden]) ~ :not([hidden]), #headlessui-portal-root .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -576,8 +596,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.75rem;
 }#chrome-command-palette .rounded-lg, #headlessui-portal-root .rounded-lg {
   border-radius: 0.5rem;
+}#chrome-command-palette .rounded, #headlessui-portal-root .rounded {
+  border-radius: 0.25rem;
 }#chrome-command-palette .border-0, #headlessui-portal-root .border-0 {
   border-width: 0px;
+}#chrome-command-palette .border, #headlessui-portal-root .border {
+  border-width: 1px;
+}#chrome-command-palette .border-gray-400, #headlessui-portal-root .border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }#chrome-command-palette .bg-blue-500, #headlessui-portal-root .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
@@ -595,12 +622,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 }#chrome-command-palette .bg-gray-100, #headlessui-portal-root .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}#chrome-command-palette .bg-gray-50, #headlessui-portal-root .bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }#chrome-command-palette .bg-opacity-25, #headlessui-portal-root .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }#chrome-command-palette .p-4, #headlessui-portal-root .p-4 {
   padding: 1rem;
 }#chrome-command-palette .p-3, #headlessui-portal-root .p-3 {
   padding: 0.75rem;
+}#chrome-command-palette .py-2\.5, #headlessui-portal-root .py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}#chrome-command-palette .px-4, #headlessui-portal-root .px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}#chrome-command-palette .py-2, #headlessui-portal-root .py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }#chrome-command-palette .pr-4, #headlessui-portal-root .pr-4 {
   padding-right: 1rem;
 }#chrome-command-palette .pl-11, #headlessui-portal-root .pl-11 {
@@ -610,8 +649,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }#chrome-command-palette .text-sm, #headlessui-portal-root .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}#chrome-command-palette .text-xs, #headlessui-portal-root .text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }#chrome-command-palette .font-medium, #headlessui-portal-root .font-medium {
   font-weight: 500;
+}#chrome-command-palette .font-bold, #headlessui-portal-root .font-bold {
+  font-weight: 700;
+}#chrome-command-palette .font-semibold, #headlessui-portal-root .font-semibold {
+  font-weight: 600;
 }#chrome-command-palette .text-gray-400, #headlessui-portal-root .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -678,7 +724,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}@media (min-width: 640px) {.sm\:p-6 {
+}@media (min-width: 640px) {.sm\:mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }.sm\:mr-2 {
+    margin-right: 0.5rem;
+  }.sm\:p-6 {
     padding: 1.5rem;
   }.sm\:text-sm {
     font-size: 0.875rem;
