@@ -209,7 +209,7 @@ function refreshAvailableShortcuts() {
 
 <template>
     <TransitionRoot :show="open" as="template" @after-leave="query = ''">
-    <Dialog as="div" class="fixed inset-x-0 z-50 p-4 overflow-y-auto inset-y-10 sm:p-6 md:p-20" @close="open = false">
+    <Dialog as="div" class="fixed inset-x-0 p-4 overflow-y-auto inset-y-10 sm:p-6 md:p-20" @close="open = false" style="z-index: 9999;">
     <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
     <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
     </TransitionChild>

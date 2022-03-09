@@ -17614,10 +17614,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Dialog"], {
         as: "div",
-        "class": "fixed inset-x-0 z-50 p-4 overflow-y-auto inset-y-10 sm:p-6 md:p-20",
+        "class": "fixed inset-x-0 p-4 overflow-y-auto inset-y-10 sm:p-6 md:p-20",
         onClose: _cache[1] || (_cache[1] = function ($event) {
           return $setup.open = false;
-        })
+        }),
+        style: {
+          "z-index": "9999"
+        }
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["TransitionChild"], {
