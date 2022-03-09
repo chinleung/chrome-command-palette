@@ -88,13 +88,7 @@ const filteredItems = computed(_ => {
 });
 
 function closeSelection() {
-    const index = parseInt(selectedIndex.value.getAttribute('value'));
-
-    if (isNaN(index)) {
-        return;
-    }
-
-    const item = filteredItems.value[index];
+    const item = getSelectedItem();
 
     if (item?.action !== 'change-active-tab') {
         return;
@@ -114,12 +108,33 @@ function closeSelection() {
     items.value.splice(itemIndex, 1);
 }
 
+function createWindow(incognito) {
+    const item = getSelectedItem();
+
+    onSelect(item, {
+        createWindow: true,
+        incognito: incognito,
+    });
+}
+
+function getSelectedItem() {
+    const index = parseInt(selectedIndex.value.getAttribute('value'));
+
+    if (isNaN(index)) {
+        return;
+    }
+
+    return filteredItems.value[index];
+}
+
 function onKeyDown(event) {
     if (! event.ctrlKey) {
         return;
     }
 
-    switch (event.key) {
+    switch (event.key.toLowerCase()) {
+        case 'n':
+            return createWindow(event.shiftKey);
         case 'x':
             return closeSelection();
     }
@@ -133,10 +148,11 @@ function onChangeQuery(event) {
     }
 }
 
-function onSelect(item) {
+function onSelect(item, params = {}) {
     postMessage({
         action: item.action,
         value: item.value,
+        ...params,
     });
 
     open.value = false;

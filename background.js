@@ -1,18 +1,10 @@
-let activeTabId = null;
-
-chrome.tabs.onActivated.addListener(info => {
-    activeTabId = info.tabId;
-});
-
 chrome.commands.onCommand.addListener(async command => {
     if (command !== 'toggle-palette') {
         return;
     }
 
-    await updateActiveTabId();
-
     const target = {
-        tabId: activeTabId,
+        tabId: await getActiveTabId(),
     };
 
     chrome.scripting.executeScript({
@@ -47,6 +39,23 @@ chrome.runtime.onConnect.addListener(port => {
     });
 });
 
+async function createTabInNewWindow(args) {
+    let url = args.value;
+
+    if (typeof url === 'number') {
+        url = await chrome.tabs.get(args.value).then(tab => tab.url);
+    }
+
+    return await chrome.windows.create({
+        focused: true,
+        incognito: args.incognito,
+        state: await getCurrentWindow().then(window => {
+            return window.state;
+        }),
+        url: url,
+    }).then(window => window);
+}
+
 function dispatchOpenEvent(tabs)
 {
     document.dispatchEvent(new CustomEvent('OpenCommandPalette', {
@@ -60,7 +69,22 @@ function dispatchOpenEvent(tabs)
     }));
 }
 
-function handleChangeActiveTab(args) {
+async function getActiveTabId() {
+    return await chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }).then(tabs => tabs[0]?.id);
+}
+
+async function getCurrentWindow() {
+    return chrome.windows.getCurrent();
+}
+
+async function handleChangeActiveTab(args) {
+    if (args.createWindow) {
+        return createTabInNewWindow(args);
+    }
+
     chrome.tabs.get(args.value, tab => {
         chrome.windows.update(tab.windowId, {
             focused: true,
@@ -77,18 +101,37 @@ function handleCloseTab(args) {
 }
 
 function handleOpenTab(args) {
-    let url = args.value;
+    if (args.value.match(/https?:\/\//) === null) {
+        args.value = `http://${args.value}`;
+    }
 
-    if (url.match(/https?:\/\//) === null) {
-        url = `http://${url}`;
+    if (args.createWindow) {
+        return createTabInNewWindow(args);
     }
 
     chrome.tabs.create({
-        url: url,
+        url: args.value,
     });
 }
 
 function handleSearch(args) {
+    if (args.createWindow) {
+        if (args.incognito) {
+            return createTabInNewWindow({
+                ...args,
+                value: `https://google.com/search?q=${args.value}`,
+            });
+        }
+
+        return createTabInNewWindow(args).then(window => {
+            chrome.tabs.getCurrent().then(tab => {
+                chrome.search.query({
+                    text: args.value,
+                });
+            });
+        });
+    }
+
     chrome.search.query({
         disposition: "NEW_TAB",
         text: args.value,
@@ -126,18 +169,5 @@ function sendOpenEvent(target) {
             func: dispatchOpenEvent,
             args: [tabs],
         });
-    });
-}
-
-async function updateActiveTabId() {
-    if (activeTabId !== null) {
-        return;
-    }
-
-    await chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    }).then(tabs => {
-        activeTabId = tabs[0]?.id;
     });
 }

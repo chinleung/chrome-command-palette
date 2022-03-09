@@ -17357,13 +17357,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     });
 
     function closeSelection() {
-      var index = parseInt(selectedIndex.value.getAttribute('value'));
-
-      if (isNaN(index)) {
-        return;
-      }
-
-      var item = filteredItems.value[index];
+      var item = getSelectedItem();
 
       if ((item === null || item === void 0 ? void 0 : item.action) !== 'change-active-tab') {
         return;
@@ -17384,12 +17378,33 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       items.value.splice(itemIndex, 1);
     }
 
+    function createWindow(incognito) {
+      var item = getSelectedItem();
+      onSelect(item, {
+        createWindow: true,
+        incognito: incognito
+      });
+    }
+
+    function getSelectedItem() {
+      var index = parseInt(selectedIndex.value.getAttribute('value'));
+
+      if (isNaN(index)) {
+        return;
+      }
+
+      return filteredItems.value[index];
+    }
+
     function onKeyDown(event) {
       if (!event.ctrlKey) {
         return;
       }
 
-      switch (event.key) {
+      switch (event.key.toLowerCase()) {
+        case 'n':
+          return createWindow(event.shiftKey);
+
         case 'x':
           return closeSelection();
       }
@@ -17404,10 +17419,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
 
     function onSelect(item) {
-      postMessage({
+      var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      postMessage(_objectSpread({
         action: item.action,
         value: item.value
-      });
+      }, params));
       open.value = false;
     }
 
@@ -17425,6 +17441,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       selectedItem: selectedItem,
       filteredItems: filteredItems,
       closeSelection: closeSelection,
+      createWindow: createWindow,
+      getSelectedItem: getSelectedItem,
       onKeyDown: onKeyDown,
       onChangeQuery: onChangeQuery,
       onSelect: onSelect,
