@@ -28,6 +28,9 @@ chrome.runtime.onConnect.addListener(port => {
             case 'close-tab':
                 return handleCloseTab(message);
 
+            case 'open-downloads':
+                return handleOpenDownloads(message);
+
             case 'open-tab':
                 return handleOpenTab(message);
 
@@ -98,6 +101,12 @@ async function handleChangeActiveTab(args) {
 
 function handleCloseTab(args) {
     chrome.tabs.remove(args.value);
+}
+
+function handleOpenDownloads() {
+    chrome.tabs.create({
+        url: 'chrome://downloads',
+    });
 }
 
 function handleOpenTab(args) {

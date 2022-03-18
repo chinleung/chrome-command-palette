@@ -1,7 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { SearchIcon } from '@heroicons/vue/solid';
-import { DocumentIcon, LinkIcon, TrashIcon } from '@heroicons/vue/outline';
+import { DocumentIcon, DownloadIcon, LinkIcon, TrashIcon } from '@heroicons/vue/outline';
 import {
     Combobox,
     ComboboxInput,
@@ -60,6 +60,13 @@ document.addEventListener('OpenCommandPalette', event => {
                 'X',
             ],
         })),
+        {
+            action: 'open-downloads',
+            color: 'bg-gray-500',
+            icon: DownloadIcon,
+            label: 'Downloads',
+            description: 'Open the downloads history',
+        },
         wildcardItem,
     ];
 

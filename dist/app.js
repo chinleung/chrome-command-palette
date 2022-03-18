@@ -17262,8 +17262,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/vue/solid */ "./node_modules/@heroicons/vue/solid/esm/SearchIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/LinkIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DocumentIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/TrashIcon.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/TrashIcon.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -17327,7 +17328,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           description: 'Change active tab',
           shortcuts: ['N', 'X']
         });
-      })), [wildcardItem]);
+      })), [{
+        action: 'open-downloads',
+        color: 'bg-gray-500',
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
+        label: 'Downloads',
+        description: 'Open the downloads history'
+      }, wildcardItem]);
       open.value = true;
     });
     var open = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
@@ -17487,16 +17494,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       SearchIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__["default"],
       DocumentIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__["default"],
+      DownloadIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
       LinkIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__["default"],
-      TrashIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
-      Combobox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.Combobox,
-      ComboboxInput: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ComboboxInput,
-      ComboboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ComboboxOptions,
-      ComboboxOption: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.ComboboxOption,
-      Dialog: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.Dialog,
-      DialogOverlay: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.DialogOverlay,
-      TransitionChild: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.TransitionChild,
-      TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_5__.TransitionRoot
+      TrashIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+      Combobox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.Combobox,
+      ComboboxInput: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.ComboboxInput,
+      ComboboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.ComboboxOptions,
+      ComboboxOption: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.ComboboxOption,
+      Dialog: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.Dialog,
+      DialogOverlay: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.DialogOverlay,
+      TransitionChild: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.TransitionChild,
+      TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.TransitionRoot
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -18231,6 +18239,38 @@ function render(_ctx, _cache) {
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
       d: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    })
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function render(_ctx, _cache) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    "stroke-width": "2",
+    stroke: "currentColor",
+    "aria-hidden": "true"
+  }, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      d: "M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
     })
   ]))
 }
