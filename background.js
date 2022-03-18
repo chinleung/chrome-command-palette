@@ -46,6 +46,9 @@ chrome.runtime.onConnect.addListener(port => {
             case 'open-tab':
                 return handleOpenTab(message);
 
+            case 'print':
+                return handlePrint(message);
+
             case 'search':
                 return handleSearch(message);
 
@@ -156,6 +159,17 @@ function handleOpenTab(args) {
 
     chrome.tabs.create({
         url: args.value,
+    });
+}
+
+async function handlePrint() {
+    const target = {
+        tabId: await getActiveTabId(),
+    };
+
+    chrome.scripting.executeScript({
+        target: target,
+        func: _ => setTimeout(window.print, 300),
     });
 }
 

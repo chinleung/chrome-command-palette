@@ -7,6 +7,7 @@ import {
     DocumentIcon,
     DownloadIcon,
     LinkIcon,
+    PrinterIcon,
     PuzzleIcon,
     TrashIcon
 } from '@heroicons/vue/outline';
@@ -102,6 +103,13 @@ document.addEventListener('OpenCommandPalette', event => {
             icon: CogIcon,
             label: 'Settings',
             description: 'Open the browser settings',
+        },
+        {
+            action: 'print',
+            color: 'bg-green-500',
+            icon: PrinterIcon,
+            label: 'Print',
+            description: 'Open the print preview',
         },
         wildcardItem,
     ];
