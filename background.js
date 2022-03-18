@@ -31,6 +31,9 @@ chrome.runtime.onConnect.addListener(port => {
             case 'open-downloads':
                 return handleOpenDownloads(message);
 
+            case 'open-extensions':
+                return handleOpenExtensions(message);
+
             case 'open-tab':
                 return handleOpenTab(message);
 
@@ -106,6 +109,12 @@ function handleCloseTab(args) {
 function handleOpenDownloads() {
     chrome.tabs.create({
         url: 'chrome://downloads',
+    });
+}
+
+function handleOpenExtensions() {
+    chrome.tabs.create({
+        url: 'chrome://extensions',
     });
 }
 

@@ -17263,7 +17263,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/LinkIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DocumentIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/TrashIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/PuzzleIcon.js");
 /* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -17334,6 +17334,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
         label: 'Downloads',
         description: 'Open the downloads history'
+      }, {
+        action: 'open-extensions',
+        color: 'bg-gray-500',
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+        label: 'Extensions',
+        description: 'Open the list of extensions'
       }, wildcardItem]);
       open.value = true;
     });
@@ -17496,7 +17502,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       DocumentIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__["default"],
       DownloadIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
       LinkIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__["default"],
-      TrashIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+      PuzzleIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
       Combobox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.Combobox,
       ComboboxInput: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.ComboboxInput,
       ComboboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_6__.ComboboxOptions,
@@ -18309,10 +18315,10 @@ function render(_ctx, _cache) {
 
 /***/ }),
 
-/***/ "./node_modules/@heroicons/vue/outline/esm/TrashIcon.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@heroicons/vue/outline/esm/TrashIcon.js ***!
-  \**************************************************************/
+/***/ "./node_modules/@heroicons/vue/outline/esm/PuzzleIcon.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@heroicons/vue/outline/esm/PuzzleIcon.js ***!
+  \***************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -18334,7 +18340,7 @@ function render(_ctx, _cache) {
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
-      d: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+      d: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
     })
   ]))
 }
