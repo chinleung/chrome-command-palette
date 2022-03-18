@@ -3,6 +3,7 @@ import { computed, ref } from 'vue';
 import { SearchIcon } from '@heroicons/vue/solid';
 import {
     ClockIcon,
+    CogIcon,
     DocumentIcon,
     DownloadIcon,
     LinkIcon,
@@ -94,6 +95,13 @@ document.addEventListener('OpenCommandPalette', event => {
             icon: ClockIcon,
             label: 'History',
             description: 'Open the browser history',
+        },
+        {
+            action: 'open-settings',
+            color: 'bg-gray-500',
+            icon: CogIcon,
+            label: 'Settings',
+            description: 'Open the browser settings',
         },
         wildcardItem,
     ];

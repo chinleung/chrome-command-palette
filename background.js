@@ -40,6 +40,9 @@ chrome.runtime.onConnect.addListener(port => {
             case 'open-history':
                 return handleOpenHistory(message);
 
+            case 'open-settings':
+                return handleOpenSettings(message);
+
             case 'open-tab':
                 return handleOpenTab(message);
 
@@ -133,6 +136,12 @@ function handleOpenExtensions() {
 function handleOpenHistory() {
     chrome.tabs.create({
         url: 'chrome://history',
+    });
+}
+
+function handleOpenSettings() {
+    chrome.tabs.create({
+        url: 'chrome://settings',
     });
 }
 
