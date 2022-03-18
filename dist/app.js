@@ -17341,30 +17341,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, {
         action: 'open-downloads',
         color: 'bg-gray-500',
+        "default": true,
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
         label: 'Downloads',
         description: 'Open the downloads history'
       }, {
         action: 'open-extensions',
         color: 'bg-gray-500',
+        "default": true,
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
         label: 'Extensions',
         description: 'Open the list of extensions'
       }, {
         action: 'open-history',
         color: 'bg-gray-500',
+        "default": true,
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
         label: 'History',
         description: 'Open the browser history'
       }, {
         action: 'open-settings',
         color: 'bg-gray-500',
+        "default": true,
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
         label: 'Settings',
         description: 'Open the browser settings'
       }, {
         action: 'print',
         color: 'bg-green-500',
+        "default": true,
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
         label: 'Print',
         description: 'Open the print preview'
@@ -17388,7 +17393,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }];
     var filteredItems = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function (_) {
       if (query.value === '') {
-        return [];
+        return items.value.filter(function (item) {
+          return item["default"];
+        });
       }
 
       var search = query.value.toLowerCase();

@@ -79,6 +79,7 @@ document.addEventListener('OpenCommandPalette', event => {
         {
             action: 'open-downloads',
             color: 'bg-gray-500',
+            default: true,
             icon: DownloadIcon,
             label: 'Downloads',
             description: 'Open the downloads history',
@@ -86,6 +87,7 @@ document.addEventListener('OpenCommandPalette', event => {
         {
             action: 'open-extensions',
             color: 'bg-gray-500',
+            default: true,
             icon: PuzzleIcon,
             label: 'Extensions',
             description: 'Open the list of extensions',
@@ -93,6 +95,7 @@ document.addEventListener('OpenCommandPalette', event => {
         {
             action: 'open-history',
             color: 'bg-gray-500',
+            default: true,
             icon: ClockIcon,
             label: 'History',
             description: 'Open the browser history',
@@ -100,6 +103,7 @@ document.addEventListener('OpenCommandPalette', event => {
         {
             action: 'open-settings',
             color: 'bg-gray-500',
+            default: true,
             icon: CogIcon,
             label: 'Settings',
             description: 'Open the browser settings',
@@ -107,6 +111,7 @@ document.addEventListener('OpenCommandPalette', event => {
         {
             action: 'print',
             color: 'bg-green-500',
+            default: true,
             icon: PrinterIcon,
             label: 'Print',
             description: 'Open the print preview',
@@ -139,7 +144,7 @@ const shortcuts = [
 
 const filteredItems = computed(_ => {
     if (query.value === '') {
-        return [];
+        return items.value.filter(item => item.default);
     }
 
     const search = query.value.toLowerCase();
