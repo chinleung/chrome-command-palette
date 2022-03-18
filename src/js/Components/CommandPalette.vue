@@ -9,7 +9,8 @@ import {
     LinkIcon,
     PrinterIcon,
     PuzzleIcon,
-    TrashIcon
+    TrashIcon,
+    XIcon,
 } from '@heroicons/vue/outline';
 import {
     Combobox,
@@ -75,6 +76,13 @@ document.addEventListener('OpenCommandPalette', event => {
             icon: TrashIcon,
             label: 'Clear History',
             description: 'Open the prompt to clear the browser history',
+        },
+        {
+            action: 'close-tab',
+            color: 'bg-red-500',
+            icon: XIcon,
+            label: 'Close',
+            description: 'Close the active tab',
         },
         {
             action: 'open-downloads',

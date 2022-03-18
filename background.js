@@ -120,8 +120,14 @@ function handleClearHistory() {
     });
 }
 
-function handleCloseTab(args) {
-    chrome.tabs.remove(args.value);
+async function handleCloseTab(args) {
+    let id = args.value;
+
+    if (id === undefined) {
+        id = await getActiveTabId();
+    }
+
+    chrome.tabs.remove(id);
 }
 
 function handleOpenDownloads() {

@@ -17263,12 +17263,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/LinkIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DocumentIcon.js");
 /* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/TrashIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/PuzzleIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/ClockIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/CogIcon.js");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/PrinterIcon.js");
-/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/XIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/DownloadIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/PuzzleIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/ClockIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/CogIcon.js");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/PrinterIcon.js");
+/* harmony import */ var _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @headlessui/vue */ "./node_modules/@headlessui/vue/dist/headlessui.esm.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -17339,38 +17340,44 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         label: 'Clear History',
         description: 'Open the prompt to clear the browser history'
       }, {
+        action: 'close-tab',
+        color: 'bg-red-500',
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+        label: 'Close',
+        description: 'Close the active tab'
+      }, {
         action: 'open-downloads',
         color: 'bg-gray-500',
         "default": true,
-        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
         label: 'Downloads',
         description: 'Open the downloads history'
       }, {
         action: 'open-extensions',
         color: 'bg-gray-500',
         "default": true,
-        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
         label: 'Extensions',
         description: 'Open the list of extensions'
       }, {
         action: 'open-history',
         color: 'bg-gray-500',
         "default": true,
-        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
         label: 'History',
         description: 'Open the browser history'
       }, {
         action: 'open-settings',
         color: 'bg-gray-500',
         "default": true,
-        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
         label: 'Settings',
         description: 'Open the browser settings'
       }, {
         action: 'print',
         color: 'bg-green-500',
         "default": true,
-        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
+        icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_10__["default"],
         label: 'Print',
         description: 'Open the print preview'
       }, wildcardItem]);
@@ -17534,22 +17541,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       computed: vue__WEBPACK_IMPORTED_MODULE_0__.computed,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       SearchIcon: _heroicons_vue_solid__WEBPACK_IMPORTED_MODULE_2__["default"],
-      ClockIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
-      CogIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
+      ClockIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_8__["default"],
+      CogIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
       DocumentIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__["default"],
-      DownloadIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+      DownloadIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
       LinkIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_1__["default"],
-      PrinterIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_9__["default"],
-      PuzzleIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_6__["default"],
+      PrinterIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_10__["default"],
+      PuzzleIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_7__["default"],
       TrashIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
-      Combobox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.Combobox,
-      ComboboxInput: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.ComboboxInput,
-      ComboboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.ComboboxOptions,
-      ComboboxOption: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.ComboboxOption,
-      Dialog: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.Dialog,
-      DialogOverlay: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.DialogOverlay,
-      TransitionChild: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.TransitionChild,
-      TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_10__.TransitionRoot
+      XIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_5__["default"],
+      Combobox: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.Combobox,
+      ComboboxInput: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.ComboboxInput,
+      ComboboxOptions: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.ComboboxOptions,
+      ComboboxOption: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.ComboboxOption,
+      Dialog: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.Dialog,
+      DialogOverlay: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.DialogOverlay,
+      TransitionChild: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.TransitionChild,
+      TransitionRoot: _headlessui_vue__WEBPACK_IMPORTED_MODULE_11__.TransitionRoot
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -18513,6 +18521,38 @@ function render(_ctx, _cache) {
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
       d: "M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+    })
+  ]))
+}
+
+/***/ }),
+
+/***/ "./node_modules/@heroicons/vue/outline/esm/XIcon.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@heroicons/vue/outline/esm/XIcon.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+function render(_ctx, _cache) {
+  return ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    "stroke-width": "2",
+    stroke: "currentColor",
+    "aria-hidden": "true"
+  }, [
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+      "stroke-linecap": "round",
+      "stroke-linejoin": "round",
+      d: "M6 18L18 6M6 6l12 12"
     })
   ]))
 }
