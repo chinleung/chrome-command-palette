@@ -25,6 +25,9 @@ chrome.runtime.onConnect.addListener(port => {
             case 'change-active-tab':
                 return handleChangeActiveTab(message);
 
+            case 'clear-history':
+                return handleClearHistory(message);
+
             case 'close-tab':
                 return handleCloseTab(message);
 
@@ -33,6 +36,9 @@ chrome.runtime.onConnect.addListener(port => {
 
             case 'open-extensions':
                 return handleOpenExtensions(message);
+
+            case 'open-history':
+                return handleOpenHistory(message);
 
             case 'open-tab':
                 return handleOpenTab(message);
@@ -102,6 +108,12 @@ async function handleChangeActiveTab(args) {
     });
 }
 
+function handleClearHistory() {
+    chrome.tabs.create({
+        url: 'chrome://settings/clearBrowserData',
+    });
+}
+
 function handleCloseTab(args) {
     chrome.tabs.remove(args.value);
 }
@@ -115,6 +127,12 @@ function handleOpenDownloads() {
 function handleOpenExtensions() {
     chrome.tabs.create({
         url: 'chrome://extensions',
+    });
+}
+
+function handleOpenHistory() {
+    chrome.tabs.create({
+        url: 'chrome://history',
     });
 }
 

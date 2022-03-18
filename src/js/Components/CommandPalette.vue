@@ -1,7 +1,14 @@
 <script setup>
 import { computed, ref } from 'vue';
 import { SearchIcon } from '@heroicons/vue/solid';
-import { DocumentIcon, DownloadIcon, LinkIcon, PuzzleIcon } from '@heroicons/vue/outline';
+import {
+    ClockIcon,
+    DocumentIcon,
+    DownloadIcon,
+    LinkIcon,
+    PuzzleIcon,
+    TrashIcon
+} from '@heroicons/vue/outline';
 import {
     Combobox,
     ComboboxInput,
@@ -61,6 +68,13 @@ document.addEventListener('OpenCommandPalette', event => {
             ],
         })),
         {
+            action: 'clear-history',
+            color: 'bg-gray-500',
+            icon: TrashIcon,
+            label: 'Clear History',
+            description: 'Open the prompt to clear the browser history',
+        },
+        {
             action: 'open-downloads',
             color: 'bg-gray-500',
             icon: DownloadIcon,
@@ -73,6 +87,13 @@ document.addEventListener('OpenCommandPalette', event => {
             icon: PuzzleIcon,
             label: 'Extensions',
             description: 'Open the list of extensions',
+        },
+        {
+            action: 'open-history',
+            color: 'bg-gray-500',
+            icon: ClockIcon,
+            label: 'History',
+            description: 'Open the browser history',
         },
         wildcardItem,
     ];
