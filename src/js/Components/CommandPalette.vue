@@ -71,7 +71,7 @@ document.addEventListener('OpenCommandPalette', event => {
         })),
         {
             action: 'clear-history',
-            color: 'bg-gray-500',
+            color: 'bg-red-500',
             icon: TrashIcon,
             label: 'Clear History',
             description: 'Open the prompt to clear the browser history',

@@ -17334,7 +17334,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       })), [{
         action: 'clear-history',
-        color: 'bg-gray-500',
+        color: 'bg-red-500',
         icon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_4__["default"],
         label: 'Clear History',
         description: 'Open the prompt to clear the browser history'
