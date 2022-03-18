@@ -164,9 +164,9 @@ const filteredItems = computed(_ => {
 
         return item;
     }).filter(item => {
-        return item.label.toLowerCase().includes(search)
+        return item.label?.toLowerCase()?.includes(search)
             || item.url?.toLowerCase()?.includes(search)
-            || item.description.toLowerCase()?.includes(search);
+            || item.description?.toLowerCase()?.includes(search);
     })
 });
 
