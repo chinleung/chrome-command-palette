@@ -9,7 +9,7 @@
     "commands": {
         "toggle-palette": {
             "suggested_key": {
-                "default": "Ctrl+J"
+                "default": "Ctrl+Shift+K"
             },
             "description": "Toggle the command palette."
         }
