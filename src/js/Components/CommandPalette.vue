@@ -124,7 +124,7 @@ document.addEventListener('OpenCommandPalette', event => {
             label: 'Print',
             description: 'Open the print preview',
         },
-        wildcardItem,
+        wildcardItem.value,
     ];
 
     open.value = true;
@@ -157,13 +157,7 @@ const filteredItems = computed(_ => {
 
     const search = query.value.toLowerCase();
 
-    return items.value.map(item => {
-        if (item.constructor.name === 'ComputedRefImpl') {
-            return item.value;
-        }
-
-        return item;
-    }).filter(item => {
+    return items.value.filter(item => {
         return item.label?.toLowerCase()?.includes(search)
             || item.url?.toLowerCase()?.includes(search)
             || item.description?.toLowerCase()?.includes(search);
@@ -236,6 +230,9 @@ function onKeyUp(event) {
 
 function onChangeQuery(event) {
     query.value = event.target.value;
+
+    items.value.pop();
+    items.value.push(wildcardItem.value);
 
     if (filteredItems.value.length === 1) {
         selectedItem.value = filteredItems.value[0];
