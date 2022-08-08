@@ -234,7 +234,7 @@ function onChangeQuery(event) {
     items.value.pop();
     items.value.push(wildcardItem.value);
 
-    if (filteredItems.value.length === 1) {
+    if (filteredItems.value.length >= 1) {
         selectedItem.value = filteredItems.value[0];
     }
 }
